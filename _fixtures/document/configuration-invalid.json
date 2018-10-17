@@ -1,0 +1,2695 @@
+{
+  "design": {
+    "wizard": {
+      "backButtonLabel": {
+        "en": "Back",
+        "de": "Zurück"
+      },
+      "nextButtonLabel": {
+        "en": "Next",
+        "de": "Weiter"
+      },
+      "stepsLabel": [
+        {
+          "en": "Personal Details",
+          "de": "Persönliche Daten"
+        },
+        {
+          "en": "Company details",
+          "de": "Firmendaten"
+        },
+        {
+          "en": "Interests",
+          "de": "Interessen"
+        },
+        {
+          "en": "Privacy Provision",
+          "de": "Datenschutzbestimmung"
+        }
+      ]
+    },
+    "layout": "wizard",
+    "theme": "glasstec"
+  },
+  "confirmation": {
+    "component": {
+      "text": {
+        "en": "Your registration is successfully submitted. We would like to thank you very much and wish you a successful visit to the fair.",
+        "de": "Ihre Registrierung wurde verschickt. Wir bedanken uns herzlich und wünschen Ihnen einen tollen Messebesuch!"
+      },
+      "headline": {
+        "en": "Thanky you for your registration",
+        "de": "Vielen Dank für Ihre Registrierung"
+      }
+    },
+    "button": {
+      "en": "Submit registration",
+      "de": "Registrierung abschicken"
+    }
+  },
+  "elements": [
+    {
+      "elements": [
+        {
+          "type": "wurst",
+          "label": {
+            "en": "Salutaion",
+            "de": "Anrede"
+          },
+          "properties": {
+            "options": [
+              {
+                "value": "",
+                "label": {
+                  "de": ""
+                }
+              },
+              {
+                "value": "1",
+                "label": {
+                  "de": "Herr"
+                }
+              },
+              {
+                "value": "2",
+                "label": {
+                  "de": "Frau"
+                }
+              }
+            ],
+            "value": "",
+            "name": "gender",
+            "validation": {
+              "required": "always",
+              "maxLength": "255",
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "display": "always",
+            "dataField": {
+              "group": "fields",
+              "name": "gender"
+            },
+            "readonly": true,
+            "type": "select"
+          }
+        },
+        {
+          "type": "control",
+          "label": {
+            "en": "Title",
+            "de": "Titel"
+          },
+          "properties": {
+            "options": [
+              {
+                "value": "",
+                "label": {
+                  "de": ""
+                }
+              },
+              {
+                "value": "Dr.",
+                "label": {
+                  "de": "Dr."
+                }
+              },
+              {
+                "value": "Prof.",
+                "label": {
+                  "de": "Prof."
+                }
+              },
+              {
+                "value": "Prof. Dr.",
+                "label": {
+                  "de": "Prof. Dr."
+                }
+              }
+            ],
+            "value": "",
+            "name": "title",
+            "type": "select",
+            "validation": {
+              "required": "never",
+              "maxLength": "255",
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "display": "always",
+            "dataField": {
+              "group": "fields",
+              "name": "title"
+            }
+          }
+        },
+        {
+          "type": "control",
+          "label": {
+            "en": "First name",
+            "de": "Vorname"
+          },
+          "properties": {
+            "readonly": true,
+            "value": "",
+            "name": "first_name",
+            "type": "text",
+            "validation": {
+              "required": "always",
+              "minLength": 2,
+              "maxLength": "255",
+              "minLengthMessage": {
+                "en": "Minimally 2 characters!",
+                "de": "Mindestens 2 Zeichen!"
+              },
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "display": "always",
+            "dataField": {
+              "group": "fields",
+              "name": "first_name"
+            }
+          }
+        },
+        {
+          "type": "control",
+          "label": {
+            "en": "Last name",
+            "de": "Nachname"
+          },
+          "properties": {
+            "readonly": true,
+            "value": "",
+            "name": "name",
+            "type": "text",
+            "validation": {
+              "required": "always",
+              "minLength": 2,
+              "maxLength": "255",
+              "minLengthMessage": {
+                "en": "Minimally 2 characters!",
+                "de": "Mindestens 2 Zeichen!"
+              },
+              "maxLengthMessage": {
+                "en": "Maximum 8 characters!",
+                "de": "Maximal 8 Zeichen!"
+              },
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "display": "always",
+            "dataField": {
+              "group": "fields",
+              "name": "name"
+            }
+          }
+        },
+        {
+          "type": "control",
+          "label": {
+            "en": "Trade register number",
+            "de": "Handelsregisternummer"
+          },
+          "properties": {
+            "value": "",
+            "name": "business_registration_number",
+            "type": "text",
+            "validation": {
+              "minLength": 2,
+              "maxLength": "255",
+              "minLengthMessage": {
+                "en": "Minimally 2 characters!",
+                "de": "Mindestens 2 Zeichen!"
+              },
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "display": "never",
+            "dataField": {
+              "group": "freefields",
+              "name": "business_registration_number"
+            }
+          }
+        },
+        {
+          "type": "control",
+          "label": {
+            "en": "Email address",
+            "de": "E-Mail-Adresse"
+          },
+          "properties": {
+            "value": "",
+            "name": "email",
+            "prefillId": "regi-email-prefill",
+            "type": "email",
+            "validation": {
+              "patternMessage": {
+                "en": "Please enter a valid email address!!",
+                "de": "Bitte gültige E-Mail-Adresse angeben!"
+              },
+              "pattern": true,
+              "equalityMessage": {
+                "en": "The addresses do not match!",
+                "de": "Die E-Mail-Adressen stimmen nicht überein!"
+              },
+              "required": "always",
+              "maxLength": "230",
+              "blackListMessage": {
+                "en": "Please enter an email address from another domain!",
+                "de": "Bitte geben Sie eine E-Mail-Adresse einer anderen Domain an!"
+              },
+              "blackList": [
+                "*@dimedis.de",
+                "*@blafoo.de"
+              ],
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "display": "always",
+            "dataField": {
+              "group": "account",
+              "name": "email"
+            }
+          }
+        }
+      ],
+      "type": "group",
+      "label": {
+        "en": "Enter personal details",
+        "de": "Persönliche Daten eingeben"
+      },
+      "properties": {
+        "wizardStep": 1
+      }
+    },
+    {
+      "elements": [
+        {
+          "type": "control",
+          "label": {
+            "en": "Company",
+            "de": "Firma"
+          },
+          "properties": {
+            "value": "",
+            "name": "company",
+            "type": "text",
+            "validation": {
+              "required": "never",
+              "minLength": 2,
+              "maxLength": "255",
+              "minLengthMessage": {
+                "en": "Minimally 2 characters!",
+                "de": "Mindestens 2 Zeichen!"
+              },
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "display": "always",
+            "dataField": {
+              "group": "fields",
+              "name": "company"
+            }
+          }
+        },
+        {
+          "type": "control",
+          "label": {
+            "en": "Country",
+            "de": "Land"
+          },
+          "properties": {
+            "options": [
+              {
+                "value": "",
+                "label": {
+                  "de": ""
+                }
+              },
+              {
+                "value": "AF",
+                "label": {
+                  "de": "Afghanistan"
+                }
+              },
+              {
+                "value": "EG",
+                "label": {
+                  "de": "Ägypten"
+                }
+              },
+              {
+                "value": "AX",
+                "label": {
+                  "de": "Åland islands"
+                }
+              },
+              {
+                "value": "AL",
+                "label": {
+                  "de": "Albanien"
+                }
+              },
+              {
+                "value": "DZ",
+                "label": {
+                  "de": "Algerien"
+                }
+              },
+              {
+                "value": "AD",
+                "label": {
+                  "de": "Andorra"
+                }
+              },
+              {
+                "value": "AO",
+                "label": {
+                  "de": "Angola"
+                }
+              },
+              {
+                "value": "AI",
+                "label": {
+                  "de": "Anguilla"
+                }
+              },
+              {
+                "value": "AG",
+                "label": {
+                  "de": "Antigua und Barbuda"
+                }
+              },
+              {
+                "value": "GQ",
+                "label": {
+                  "de": "Äquatorial-Guinea"
+                }
+              },
+              {
+                "value": "AR",
+                "label": {
+                  "de": "Argentinien"
+                }
+              },
+              {
+                "value": "AM",
+                "label": {
+                  "de": "Armenien"
+                }
+              },
+              {
+                "value": "AW",
+                "label": {
+                  "de": "Aruba"
+                }
+              },
+              {
+                "value": "AZ",
+                "label": {
+                  "de": "Aserbaidschan"
+                }
+              },
+              {
+                "value": "ET",
+                "label": {
+                  "de": "Äthiopien"
+                }
+              },
+              {
+                "value": "AU",
+                "label": {
+                  "de": "Australien"
+                }
+              },
+              {
+                "value": "BS",
+                "label": {
+                  "de": "Bahamas"
+                }
+              },
+              {
+                "value": "BH",
+                "label": {
+                  "de": "Bahrain"
+                }
+              },
+              {
+                "value": "BD",
+                "label": {
+                  "de": "Bangladesch"
+                }
+              },
+              {
+                "value": "BB",
+                "label": {
+                  "de": "Barbados"
+                }
+              },
+              {
+                "value": "BE",
+                "label": {
+                  "de": "Belgien"
+                }
+              },
+              {
+                "value": "BZ",
+                "label": {
+                  "de": "Belize"
+                }
+              },
+              {
+                "value": "BJ",
+                "label": {
+                  "de": "Benin"
+                }
+              },
+              {
+                "value": "BM",
+                "label": {
+                  "de": "Bermudas"
+                }
+              },
+              {
+                "value": "BT",
+                "label": {
+                  "de": "Bhutan"
+                }
+              },
+              {
+                "value": "BO",
+                "label": {
+                  "de": "Bolivien"
+                }
+              },
+              {
+                "value": "BQ",
+                "label": {
+                  "de": "Bonaire, Saba, St. Eustatius"
+                }
+              },
+              {
+                "value": "BA",
+                "label": {
+                  "de": "Bosnien-Herzegowina"
+                }
+              },
+              {
+                "value": "BW",
+                "label": {
+                  "de": "Botswana"
+                }
+              },
+              {
+                "value": "BR",
+                "label": {
+                  "de": "Brasilien"
+                }
+              },
+              {
+                "value": "BN",
+                "label": {
+                  "de": "Brunei Darussalam"
+                }
+              },
+              {
+                "value": "BG",
+                "label": {
+                  "de": "Bulgarien"
+                }
+              },
+              {
+                "value": "BF",
+                "label": {
+                  "de": "Burkina Faso"
+                }
+              },
+              {
+                "value": "BI",
+                "label": {
+                  "de": "Burundi"
+                }
+              },
+              {
+                "value": "KY",
+                "label": {
+                  "de": "Cayman-Inseln"
+                }
+              },
+              {
+                "value": "CL",
+                "label": {
+                  "de": "Chile"
+                }
+              },
+              {
+                "value": "HK",
+                "label": {
+                  "de": "China / Sonderverwaltungsregion Hongkong"
+                }
+              },
+              {
+                "value": "CN",
+                "label": {
+                  "de": "China, Volksrepublik"
+                }
+              },
+              {
+                "value": "CK",
+                "label": {
+                  "de": "Cook-Inseln"
+                }
+              },
+              {
+                "value": "CR",
+                "label": {
+                  "de": "Costa Rica"
+                }
+              },
+              {
+                "value": "CI",
+                "label": {
+                  "de": "Cote d'Ivoire [Elfenbeinküste]"
+                }
+              },
+              {
+                "value": "CW",
+                "label": {
+                  "de": "Curaçao"
+                }
+              },
+              {
+                "value": "DK",
+                "label": {
+                  "de": "Dänemark"
+                }
+              },
+              {
+                "value": "DE",
+                "label": {
+                  "de": "Deutschland"
+                }
+              },
+              {
+                "value": "DM",
+                "label": {
+                  "de": "Dominica"
+                }
+              },
+              {
+                "value": "DO",
+                "label": {
+                  "de": "Dominikanische Republik"
+                }
+              },
+              {
+                "value": "DJ",
+                "label": {
+                  "de": "Dschibuti"
+                }
+              },
+              {
+                "value": "EC",
+                "label": {
+                  "de": "Ecuador"
+                }
+              },
+              {
+                "value": "SV",
+                "label": {
+                  "de": "El Salvador"
+                }
+              },
+              {
+                "value": "ER",
+                "label": {
+                  "de": "Eritrea"
+                }
+              },
+              {
+                "value": "EE",
+                "label": {
+                  "de": "Estland"
+                }
+              },
+              {
+                "value": "FK",
+                "label": {
+                  "de": "Falklandinseln"
+                }
+              },
+              {
+                "value": "FO",
+                "label": {
+                  "de": "Färöer"
+                }
+              },
+              {
+                "value": "FJ",
+                "label": {
+                  "de": "Fidschi"
+                }
+              },
+              {
+                "value": "FI",
+                "label": {
+                  "de": "Finnland"
+                }
+              },
+              {
+                "value": "FR",
+                "label": {
+                  "de": "Frankreich"
+                }
+              },
+              {
+                "value": "GA",
+                "label": {
+                  "de": "Gabun"
+                }
+              },
+              {
+                "value": "GM",
+                "label": {
+                  "de": "Gambia"
+                }
+              },
+              {
+                "value": "GE",
+                "label": {
+                  "de": "Georgien"
+                }
+              },
+              {
+                "value": "GH",
+                "label": {
+                  "de": "Ghana"
+                }
+              },
+              {
+                "value": "GI",
+                "label": {
+                  "de": "Gibraltar"
+                }
+              },
+              {
+                "value": "GD",
+                "label": {
+                  "de": "Grenada"
+                }
+              },
+              {
+                "value": "GR",
+                "label": {
+                  "de": "Griechenland"
+                }
+              },
+              {
+                "value": "GL",
+                "label": {
+                  "de": "Grönland"
+                }
+              },
+              {
+                "value": "GB",
+                "label": {
+                  "de": "Großbritannien / Nordirland"
+                }
+              },
+              {
+                "value": "GP",
+                "label": {
+                  "de": "Guadeloupe"
+                }
+              },
+              {
+                "value": "GU",
+                "label": {
+                  "de": "Guam"
+                }
+              },
+              {
+                "value": "GT",
+                "label": {
+                  "de": "Guatemala"
+                }
+              },
+              {
+                "value": "GY",
+                "label": {
+                  "de": "Guayana"
+                }
+              },
+              {
+                "value": "GF",
+                "label": {
+                  "de": "Guayana, Französisch"
+                }
+              },
+              {
+                "value": "GN",
+                "label": {
+                  "de": "Guinea"
+                }
+              },
+              {
+                "value": "GW",
+                "label": {
+                  "de": "Guinea-Bissau"
+                }
+              },
+              {
+                "value": "HT",
+                "label": {
+                  "de": "Haiti"
+                }
+              },
+              {
+                "value": "HN",
+                "label": {
+                  "de": "Honduras"
+                }
+              },
+              {
+                "value": "IN",
+                "label": {
+                  "de": "Indien"
+                }
+              },
+              {
+                "value": "ID",
+                "label": {
+                  "de": "Indonesien"
+                }
+              },
+              {
+                "value": "IQ",
+                "label": {
+                  "de": "Irak"
+                }
+              },
+              {
+                "value": "IR",
+                "label": {
+                  "de": "Iran"
+                }
+              },
+              {
+                "value": "IE",
+                "label": {
+                  "de": "Irland"
+                }
+              },
+              {
+                "value": "IS",
+                "label": {
+                  "de": "Island"
+                }
+              },
+              {
+                "value": "IL",
+                "label": {
+                  "de": "Israel"
+                }
+              },
+              {
+                "value": "IT",
+                "label": {
+                  "de": "Italien"
+                }
+              },
+              {
+                "value": "JM",
+                "label": {
+                  "de": "Jamaika"
+                }
+              },
+              {
+                "value": "JP",
+                "label": {
+                  "de": "Japan"
+                }
+              },
+              {
+                "value": "YE",
+                "label": {
+                  "de": "Jemen"
+                }
+              },
+              {
+                "value": "JO",
+                "label": {
+                  "de": "Jordanien"
+                }
+              },
+              {
+                "value": "VG",
+                "label": {
+                  "de": "Jungfern-Inseln, brit."
+                }
+              },
+              {
+                "value": "VI",
+                "label": {
+                  "de": "Jungfern-Inseln, US-amerik."
+                }
+              },
+              {
+                "value": "KH",
+                "label": {
+                  "de": "Kambodscha"
+                }
+              },
+              {
+                "value": "CM",
+                "label": {
+                  "de": "Kamerun"
+                }
+              },
+              {
+                "value": "CA",
+                "label": {
+                  "de": "Kanada"
+                }
+              },
+              {
+                "value": "CV",
+                "label": {
+                  "de": "Kap Verde"
+                }
+              },
+              {
+                "value": "KZ",
+                "label": {
+                  "de": "Kasachstan"
+                }
+              },
+              {
+                "value": "QA",
+                "label": {
+                  "de": "Katar"
+                }
+              },
+              {
+                "value": "KE",
+                "label": {
+                  "de": "Kenia"
+                }
+              },
+              {
+                "value": "KG",
+                "label": {
+                  "de": "Kirgistan"
+                }
+              },
+              {
+                "value": "KI",
+                "label": {
+                  "de": "Kiribati"
+                }
+              },
+              {
+                "value": "CO",
+                "label": {
+                  "de": "Kolumbien"
+                }
+              },
+              {
+                "value": "KM",
+                "label": {
+                  "de": "Komoren"
+                }
+              },
+              {
+                "value": "CD",
+                "label": {
+                  "de": "Kongo, Dem. Republik [Zaire]"
+                }
+              },
+              {
+                "value": "CG",
+                "label": {
+                  "de": "Kongo, Republik"
+                }
+              },
+              {
+                "value": "KP",
+                "label": {
+                  "de": "Korea, Demokr. Volksrepublik (Nordkorea)"
+                }
+              },
+              {
+                "value": "KR",
+                "label": {
+                  "de": "Korea, Republik (Südkorea)"
+                }
+              },
+              {
+                "value": "XK",
+                "label": {
+                  "de": "Kosovo"
+                }
+              },
+              {
+                "value": "HR",
+                "label": {
+                  "de": "Kroatien"
+                }
+              },
+              {
+                "value": "CU",
+                "label": {
+                  "de": "Kuba"
+                }
+              },
+              {
+                "value": "KW",
+                "label": {
+                  "de": "Kuwait"
+                }
+              },
+              {
+                "value": "LA",
+                "label": {
+                  "de": "Laos"
+                }
+              },
+              {
+                "value": "LS",
+                "label": {
+                  "de": "Lesotho"
+                }
+              },
+              {
+                "value": "LV",
+                "label": {
+                  "de": "Lettland"
+                }
+              },
+              {
+                "value": "LB",
+                "label": {
+                  "de": "Libanon"
+                }
+              },
+              {
+                "value": "LR",
+                "label": {
+                  "de": "Liberia"
+                }
+              },
+              {
+                "value": "LY",
+                "label": {
+                  "de": "Libyen"
+                }
+              },
+              {
+                "value": "LI",
+                "label": {
+                  "de": "Liechtenstein"
+                }
+              },
+              {
+                "value": "LT",
+                "label": {
+                  "de": "Litauen"
+                }
+              },
+              {
+                "value": "LU",
+                "label": {
+                  "de": "Luxemburg"
+                }
+              },
+              {
+                "value": "MO",
+                "label": {
+                  "de": "Macao"
+                }
+              },
+              {
+                "value": "MG",
+                "label": {
+                  "de": "Madagaskar"
+                }
+              },
+              {
+                "value": "MK",
+                "label": {
+                  "de": "Makedonien"
+                }
+              },
+              {
+                "value": "MW",
+                "label": {
+                  "de": "Malawi"
+                }
+              },
+              {
+                "value": "MY",
+                "label": {
+                  "de": "Malaysia"
+                }
+              },
+              {
+                "value": "MV",
+                "label": {
+                  "de": "Malediven"
+                }
+              },
+              {
+                "value": "ML",
+                "label": {
+                  "de": "Mali"
+                }
+              },
+              {
+                "value": "MT",
+                "label": {
+                  "de": "Malta"
+                }
+              },
+              {
+                "value": "MP",
+                "label": {
+                  "de": "Marianen, Nördliche"
+                }
+              },
+              {
+                "value": "MA",
+                "label": {
+                  "de": "Marokko"
+                }
+              },
+              {
+                "value": "MH",
+                "label": {
+                  "de": "Marshall-Inseln"
+                }
+              },
+              {
+                "value": "MQ",
+                "label": {
+                  "de": "Martinique"
+                }
+              },
+              {
+                "value": "MR",
+                "label": {
+                  "de": "Mauretanien"
+                }
+              },
+              {
+                "value": "MU",
+                "label": {
+                  "de": "Mauritius"
+                }
+              },
+              {
+                "value": "YT",
+                "label": {
+                  "de": "Mayotte"
+                }
+              },
+              {
+                "value": "MX",
+                "label": {
+                  "de": "Mexiko"
+                }
+              },
+              {
+                "value": "FM",
+                "label": {
+                  "de": "Mikronesien"
+                }
+              },
+              {
+                "value": "MD",
+                "label": {
+                  "de": "Moldawien [Moldau]"
+                }
+              },
+              {
+                "value": "MC",
+                "label": {
+                  "de": "Monaco"
+                }
+              },
+              {
+                "value": "MN",
+                "label": {
+                  "de": "Mongolei"
+                }
+              },
+              {
+                "value": "ME",
+                "label": {
+                  "de": "Montenegro"
+                }
+              },
+              {
+                "value": "MS",
+                "label": {
+                  "de": "Montserrat"
+                }
+              },
+              {
+                "value": "MZ",
+                "label": {
+                  "de": "Mosambik"
+                }
+              },
+              {
+                "value": "MM",
+                "label": {
+                  "de": "Myanmar"
+                }
+              },
+              {
+                "value": "NA",
+                "label": {
+                  "de": "Namibia"
+                }
+              },
+              {
+                "value": "NR",
+                "label": {
+                  "de": "Nauru"
+                }
+              },
+              {
+                "value": "NP",
+                "label": {
+                  "de": "Nepal"
+                }
+              },
+              {
+                "value": "NC",
+                "label": {
+                  "de": "Neukaledonien"
+                }
+              },
+              {
+                "value": "NZ",
+                "label": {
+                  "de": "Neuseeland"
+                }
+              },
+              {
+                "value": "NI",
+                "label": {
+                  "de": "Nicaragua"
+                }
+              },
+              {
+                "value": "NL",
+                "label": {
+                  "de": "Niederlande"
+                }
+              },
+              {
+                "value": "AN",
+                "label": {
+                  "de": "Niederländische Antillen"
+                }
+              },
+              {
+                "value": "NE",
+                "label": {
+                  "de": "Niger"
+                }
+              },
+              {
+                "value": "NG",
+                "label": {
+                  "de": "Nigeria"
+                }
+              },
+              {
+                "value": "NO",
+                "label": {
+                  "de": "Norwegen"
+                }
+              },
+              {
+                "value": "OM",
+                "label": {
+                  "de": "Oman"
+                }
+              },
+              {
+                "value": "AT",
+                "label": {
+                  "de": "Österreich"
+                }
+              },
+              {
+                "value": "TL",
+                "label": {
+                  "de": "Osttimor [Timor-Leste]"
+                }
+              },
+              {
+                "value": "PK",
+                "label": {
+                  "de": "Pakistan"
+                }
+              },
+              {
+                "value": "PS",
+                "label": {
+                  "de": "Palästinensische Gebiete"
+                }
+              },
+              {
+                "value": "PW",
+                "label": {
+                  "de": "Palau"
+                }
+              },
+              {
+                "value": "PA",
+                "label": {
+                  "de": "Panama"
+                }
+              },
+              {
+                "value": "PG",
+                "label": {
+                  "de": "Papua-Neuguinea"
+                }
+              },
+              {
+                "value": "PY",
+                "label": {
+                  "de": "Paraguay"
+                }
+              },
+              {
+                "value": "PE",
+                "label": {
+                  "de": "Peru"
+                }
+              },
+              {
+                "value": "PH",
+                "label": {
+                  "de": "Philippinen"
+                }
+              },
+              {
+                "value": "PL",
+                "label": {
+                  "de": "Polen"
+                }
+              },
+              {
+                "value": "PF",
+                "label": {
+                  "de": "Polynesien, Französisch"
+                }
+              },
+              {
+                "value": "PT",
+                "label": {
+                  "de": "Portugal"
+                }
+              },
+              {
+                "value": "PR",
+                "label": {
+                  "de": "Puerto Rico"
+                }
+              },
+              {
+                "value": "RE",
+                "label": {
+                  "de": "Reunion"
+                }
+              },
+              {
+                "value": "RW",
+                "label": {
+                  "de": "Ruanda"
+                }
+              },
+              {
+                "value": "RO",
+                "label": {
+                  "de": "Rumänien"
+                }
+              },
+              {
+                "value": "RU",
+                "label": {
+                  "de": "Russische Föderation"
+                }
+              },
+              {
+                "value": "SB",
+                "label": {
+                  "de": "Salomonen"
+                }
+              },
+              {
+                "value": "ZM",
+                "label": {
+                  "de": "Sambia"
+                }
+              },
+              {
+                "value": "AS",
+                "label": {
+                  "de": "Samoa, Amerikanisch"
+                }
+              },
+              {
+                "value": "SM",
+                "label": {
+                  "de": "San Marino"
+                }
+              },
+              {
+                "value": "ST",
+                "label": {
+                  "de": "São Tome´ und Principe"
+                }
+              },
+              {
+                "value": "SA",
+                "label": {
+                  "de": "Saudi-Arabien"
+                }
+              },
+              {
+                "value": "SE",
+                "label": {
+                  "de": "Schweden"
+                }
+              },
+              {
+                "value": "CH",
+                "label": {
+                  "de": "Schweiz"
+                }
+              },
+              {
+                "value": "SN",
+                "label": {
+                  "de": "Senegal"
+                }
+              },
+              {
+                "value": "RS",
+                "label": {
+                  "de": "Serbien"
+                }
+              },
+              {
+                "value": "SC",
+                "label": {
+                  "de": "Seychellen"
+                }
+              },
+              {
+                "value": "SL",
+                "label": {
+                  "de": "Sierra Leone"
+                }
+              },
+              {
+                "value": "ZW",
+                "label": {
+                  "de": "Simbabwe"
+                }
+              },
+              {
+                "value": "SG",
+                "label": {
+                  "de": "Singapur"
+                }
+              },
+              {
+                "value": "SK",
+                "label": {
+                  "de": "Slowakische Republik"
+                }
+              },
+              {
+                "value": "SI",
+                "label": {
+                  "de": "Slowenien"
+                }
+              },
+              {
+                "value": "SO",
+                "label": {
+                  "de": "Somalia"
+                }
+              },
+              {
+                "value": "ES",
+                "label": {
+                  "de": "Spanien"
+                }
+              },
+              {
+                "value": "LK",
+                "label": {
+                  "de": "Sri Lanka"
+                }
+              },
+              {
+                "value": "BL",
+                "label": {
+                  "de": "St. Barthélemy"
+                }
+              },
+              {
+                "value": "SH",
+                "label": {
+                  "de": "St. Helena"
+                }
+              },
+              {
+                "value": "KN",
+                "label": {
+                  "de": "St. Kitts und Nevis"
+                }
+              },
+              {
+                "value": "LC",
+                "label": {
+                  "de": "St. Lucia"
+                }
+              },
+              {
+                "value": "MF",
+                "label": {
+                  "de": "St. Martin [franz. Teil]"
+                }
+              },
+              {
+                "value": "SX",
+                "label": {
+                  "de": "St. Martin [niederl. Teil]"
+                }
+              },
+              {
+                "value": "PM",
+                "label": {
+                  "de": "St. Pierre und Miquelon"
+                }
+              },
+              {
+                "value": "VC",
+                "label": {
+                  "de": "St. Vincent und Grenadinen"
+                }
+              },
+              {
+                "value": "ZA",
+                "label": {
+                  "de": "Südafrika"
+                }
+              },
+              {
+                "value": "SD",
+                "label": {
+                  "de": "Sudan"
+                }
+              },
+              {
+                "value": "SS",
+                "label": {
+                  "de": "Südsudan"
+                }
+              },
+              {
+                "value": "SR",
+                "label": {
+                  "de": "Surinam"
+                }
+              },
+              {
+                "value": "SZ",
+                "label": {
+                  "de": "Swasiland"
+                }
+              },
+              {
+                "value": "SY",
+                "label": {
+                  "de": "Syrien"
+                }
+              },
+              {
+                "value": "TJ",
+                "label": {
+                  "de": "Tadschikistan"
+                }
+              },
+              {
+                "value": "TW",
+                "label": {
+                  "de": "Taiwan"
+                }
+              },
+              {
+                "value": "TZ",
+                "label": {
+                  "de": "Tansania"
+                }
+              },
+              {
+                "value": "TH",
+                "label": {
+                  "de": "Thailand"
+                }
+              },
+              {
+                "value": "TG",
+                "label": {
+                  "de": "Togo"
+                }
+              },
+              {
+                "value": "TO",
+                "label": {
+                  "de": "Tonga"
+                }
+              },
+              {
+                "value": "TT",
+                "label": {
+                  "de": "Trinidad und Tobago"
+                }
+              },
+              {
+                "value": "TD",
+                "label": {
+                  "de": "Tschad"
+                }
+              },
+              {
+                "value": "CZ",
+                "label": {
+                  "de": "Tschechische Republik"
+                }
+              },
+              {
+                "value": "TN",
+                "label": {
+                  "de": "Tunesien"
+                }
+              },
+              {
+                "value": "TR",
+                "label": {
+                  "de": "Türkei"
+                }
+              },
+              {
+                "value": "TM",
+                "label": {
+                  "de": "Turkmenistan"
+                }
+              },
+              {
+                "value": "TC",
+                "label": {
+                  "de": "Turks- und Caicos-Inseln"
+                }
+              },
+              {
+                "value": "TV",
+                "label": {
+                  "de": "Tuvalu"
+                }
+              },
+              {
+                "value": "UG",
+                "label": {
+                  "de": "Uganda"
+                }
+              },
+              {
+                "value": "UA",
+                "label": {
+                  "de": "Ukraine"
+                }
+              },
+              {
+                "value": "HU",
+                "label": {
+                  "de": "Ungarn"
+                }
+              },
+              {
+                "value": "UY",
+                "label": {
+                  "de": "Uruguay"
+                }
+              },
+              {
+                "value": "US",
+                "label": {
+                  "de": "USA"
+                }
+              },
+              {
+                "value": "UZ",
+                "label": {
+                  "de": "Usbekistan"
+                }
+              },
+              {
+                "value": "VU",
+                "label": {
+                  "de": "Vanuatu"
+                }
+              },
+              {
+                "value": "VA",
+                "label": {
+                  "de": "Vatikanstadt"
+                }
+              },
+              {
+                "value": "VE",
+                "label": {
+                  "de": "Venezuela"
+                }
+              },
+              {
+                "value": "AE",
+                "label": {
+                  "de": "Vereinigte Arabische Emirate"
+                }
+              },
+              {
+                "value": "VN",
+                "label": {
+                  "de": "Vietnam"
+                }
+              },
+              {
+                "value": "WF",
+                "label": {
+                  "de": "Wallis und Futuna"
+                }
+              },
+              {
+                "value": "BY",
+                "label": {
+                  "de": "Weißrussland [Belarus]"
+                }
+              },
+              {
+                "value": "EH",
+                "label": {
+                  "de": "West-Sahara"
+                }
+              },
+              {
+                "value": "WS",
+                "label": {
+                  "de": "West-Samoa"
+                }
+              },
+              {
+                "value": "CF",
+                "label": {
+                  "de": "Zentralafrikanische Republik"
+                }
+              },
+              {
+                "value": "CY",
+                "label": {
+                  "de": "Zypern"
+                }
+              }
+            ],
+            "value": "",
+            "name": "country",
+            "type": "select",
+            "validation": {
+              "required": "always",
+              "maxLength": "255",
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "display": "always",
+            "dataField": {
+              "group": "fields",
+              "name": "country"
+            }
+          }
+        },
+        {
+          "type": "control",
+          "label": {
+            "en": "Zip code",
+            "de": "Postleitzahl"
+          },
+          "properties": {
+            "value": "",
+            "name": "zip_street",
+            "validation": {
+              "required": "always",
+              "maxLength": "30",
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "display": "always",
+            "dataField": {
+              "group": "fields",
+              "name": "zip_street"
+            },
+            "e2eId": "e2e-autosuggest-zip-code",
+            "type": "text",
+            "autosuggest": {
+              "dataToFetch": [
+                "postalCode",
+                "city"
+              ],
+              "autocomplete": {
+                "city": "city"
+              },
+              "serviceUrl": "https://search01.messe-duesseldorf.de/regina/postalcode/_search?",
+              "queryString": "postalCode",
+              "queryFilters": [
+                {
+                  "name": "countryCode",
+                  "fieldName": "country"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "control",
+          "label": {
+            "en": "City",
+            "de": "Ort"
+          },
+          "properties": {
+            "value": "",
+            "name": "city",
+            "type": "text",
+            "validation": {
+              "required": "always",
+              "minLength": 2,
+              "maxLength": "255",
+              "minLengthMessage": {
+                "en": "Minimally 2 characters!",
+                "de": "Mindestens 2 Zeichen!"
+              },
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "autosuggest": {
+              "dataToFetch": [
+                "postalCode",
+                "city"
+              ],
+              "autocomplete": {
+                "zip_street": "postalCode"
+              },
+              "serviceUrl": "https://search01.messe-duesseldorf.de/regina/postalcode/_search?",
+              "queryString": "city",
+              "queryFilters": [
+                {
+                  "name": "countryCode",
+                  "fieldName": "country"
+                }
+              ]
+            },
+            "display": "always",
+            "dataField": {
+              "group": "fields",
+              "name": "city"
+            }
+          }
+        },
+        {
+          "type": "control",
+          "label": {
+            "en": "Street, Number",
+            "de": "Straße, Nr."
+          },
+          "properties": {
+            "value": "",
+            "name": "street",
+            "type": "text",
+            "validation": {
+              "required": "always",
+              "minLength": 2,
+              "maxLength": "255",
+              "minLengthMessage": {
+                "en": "Minimally 2 characters!",
+                "de": "Mindestens 2 Zeichen!"
+              },
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "display": "always",
+            "dataField": {
+              "group": "fields",
+              "name": "street"
+            }
+          }
+        }
+      ],
+      "type": "group",
+      "label": {
+        "en": "Enter company details",
+        "de": "Firmendaten eingeben"
+      },
+      "properties": {
+        "wizardStep": 2
+      }
+    },
+    {
+      "elements": [
+        {
+          "type": "control",
+          "label": {
+            "en": "AKNW Membership No.",
+            "de": "AKNW Mitgliedsnummer"
+          },
+          "properties": {
+            "value": "",
+            "name": "glasstech_architektennr",
+            "type": "text",
+            "validation": {
+              "required": "never",
+              "minLength": 2,
+              "maxLength": 255,
+              "minLengthMessage": {
+                "en": "Minimally 2 characters!",
+                "de": "Mindestens 2 Zeichen!"
+              },
+              "requiredMessage": {
+                "en": "This field is mandatory!",
+                "de": "Dieses Feld ist Pflicht!"
+              }
+            },
+            "description": [
+              {
+                "content": {
+                  "en": "Is necessary for the participate certification.",
+                  "de": "Für die Ausstellung der Teilnahmebescheinigung werden Ihre Daten an die AKNW weitergeleitet."
+                },
+                "position": "before"
+              }
+            ],
+            "display": "always",
+            "dataField": {
+              "group": "freefields",
+              "name": "glasstech_architektennr"
+            }
+          }
+        }
+      ],
+      "type": "group",
+      "properties": {
+        "wizardStep": 2
+      }
+    },
+    {
+      "elements": [
+        {
+          "elements": [
+            {
+              "label": {
+                "de": ""
+              },
+              "type": "control",
+              "properties": {
+                "options": [
+                  {
+                    "value": "31_01",
+                    "label": {
+                      "de": "Selbständiger Unternehmer, Mitinhaber, freiberuflich Tätiger"
+                    }
+                  },
+                  {
+                    "value": "31_02",
+                    "label": {
+                      "de": "Geschäftsführer, Vorstandsmitglied, Behördenleiter, o. ä."
+                    }
+                  },
+                  {
+                    "value": "31_10",
+                    "label": {
+                      "de": "Bereichsleiter, Betriebs-, Werks-, Filialleiter, Amtsleiter"
+                    }
+                  },
+                  {
+                    "value": "31_04",
+                    "label": {
+                      "de": "Abteilungsleiter, Gruppenleiter, Teamleiter"
+                    }
+                  },
+                  {
+                    "value": "31_05",
+                    "label": {
+                      "de": "Anderer Angestellter, Beamter, Facharbeiter"
+                    }
+                  },
+                  {
+                    "value": "31_11",
+                    "label": {
+                      "de": "Dozent, Lehrer"
+                    }
+                  },
+                  {
+                    "value": "31_12",
+                    "label": {
+                      "de": "Auszubildender"
+                    }
+                  },
+                  {
+                    "value": "31_08",
+                    "label": {
+                      "de": "Andere berufliche Stellung"
+                    }
+                  },
+                  {
+                    "value": "31_07",
+                    "label": {
+                      "de": "Schüler, Student"
+                    }
+                  },
+                  {
+                    "value": "31_09",
+                    "label": {
+                      "de": "Andere nicht Berufstätige"
+                    }
+                  }
+                ],
+                "name": "question_31",
+                "validation": {
+                  "required": "always",
+                  "requiredMessage": {
+                    "de": "Bitte beantworten Sie diese Frage!"
+                  }
+                },
+                "type": "radio",
+                "dataField": {
+                  "group": "survey",
+                  "name": "31"
+                }
+              }
+            }
+          ],
+          "label": {
+            "de": "Berufliche Stellung"
+          },
+          "type": "group",
+          "properties": {
+            "name": "group_question_31",
+            "dependencies": {}
+          }
+        },
+        {
+          "elements": [
+            {
+              "label": {
+                "de": ""
+              },
+              "type": "control",
+              "properties": {
+                "options": [
+                  {
+                    "value": "32_01",
+                    "label": {
+                      "de": "Geschäfts-, Unternehmens-, Betriebsleitung"
+                    }
+                  },
+                  {
+                    "value": "32_03",
+                    "label": {
+                      "de": "Forschung und Entwicklung, Konstruktion"
+                    }
+                  },
+                  {
+                    "value": "32_02",
+                    "label": {
+                      "de": "Fertigung, Produktion, Qualitätskontrolle"
+                    }
+                  },
+                  {
+                    "value": "32_05",
+                    "label": {
+                      "de": "Einkauf, Beschaffung"
+                    }
+                  },
+                  {
+                    "value": "32_12",
+                    "label": {
+                      "de": "Finanzen, Rechnungswesen, Controlling"
+                    }
+                  },
+                  {
+                    "value": "32_13",
+                    "label": {
+                      "de": "Informations-, Kommunikationstechnik"
+                    }
+                  },
+                  {
+                    "value": "32_10",
+                    "label": {
+                      "de": "Personalwesen, Verwaltung"
+                    }
+                  },
+                  {
+                    "value": "32_04",
+                    "label": {
+                      "de": "Verkauf, Vertrieb"
+                    }
+                  },
+                  {
+                    "value": "32_08",
+                    "label": {
+                      "de": "Marketing, Werbung, PR"
+                    }
+                  },
+                  {
+                    "value": "32_14",
+                    "label": {
+                      "de": "Logistik: Materialwirtschaft, Lager, Transport"
+                    }
+                  },
+                  {
+                    "value": "32_06",
+                    "label": {
+                      "de": "Wartung, Instandhaltung"
+                    }
+                  },
+                  {
+                    "value": "32_11",
+                    "label": {
+                      "de": "Anderer Bereich"
+                    }
+                  }
+                ],
+                "name": "question_32",
+                "validation": {
+                  "required": "always",
+                  "requiredMessage": {
+                    "de": "Bitte beantworten Sie diese Frage!"
+                  }
+                },
+                "type": "radio",
+                "dataField": {
+                  "group": "survey",
+                  "name": "32"
+                }
+              }
+            }
+          ],
+          "label": {
+            "de": "Aufgabenbereich"
+          },
+          "type": "group",
+          "properties": {
+            "name": "group_question_32",
+            "dependencies": {}
+          }
+        },
+        {
+          "elements": [
+            {
+              "label": {
+                "de": ""
+              },
+              "type": "control",
+              "properties": {
+                "options": [
+                  {
+                    "value": "h01",
+                    "label": {
+                      "de": "Maschinen und Anlagenbau"
+                    }
+                  },
+                  {
+                    "value": "33_58",
+                    "label": {
+                      "de": "Hersteller von Maschinen zur Glasherstellung / Produktionstechnik (Hohlglas)"
+                    }
+                  },
+                  {
+                    "value": "33_59",
+                    "label": {
+                      "de": "Hersteller von Maschinen zur Glasherstellung / Produktionstechnik (Flachglas)"
+                    }
+                  },
+                  {
+                    "value": "33_03",
+                    "label": {
+                      "de": "Hersteller von Maschinen zur Glasbearbeitung und -veredelung"
+                    }
+                  },
+                  {
+                    "value": "33_04",
+                    "label": {
+                      "de": "Hersteller von Werkzeugen, Ersatz- und Verschleißteilen"
+                    }
+                  },
+                  {
+                    "value": "33_05",
+                    "label": {
+                      "de": "Hersteller von Mess-, Steuer- und Regeltechnik für den Maschinenbau"
+                    }
+                  },
+                  {
+                    "value": "33_06",
+                    "label": {
+                      "de": "Consulting / Engineering für den Maschinenbau"
+                    }
+                  },
+                  {
+                    "value": "h09",
+                    "label": {
+                      "de": "Industrie: Glasherstellung / Glasbe- und –verarbeitung / Glasveredelung"
+                    }
+                  },
+                  {
+                    "value": "33_51",
+                    "label": {
+                      "de": "Hersteller von Hohlglas (Wirtschafts-, Behälterglas)"
+                    }
+                  },
+                  {
+                    "value": "33_52",
+                    "label": {
+                      "de": "Hersteller von Flachglas und beschichtetem / veredeltem Glas"
+                    }
+                  },
+                  {
+                    "value": "33_53",
+                    "label": {
+                      "de": "Hersteller von Glasfasern (textile Glasfasern, Glaswolle)"
+                    }
+                  },
+                  {
+                    "value": "33_54",
+                    "label": {
+                      "de": "Hersteller von technischen- und Spezialgläsern (Displayglas, Beleuchtungsglas, optische Gläser, optische Glasfasern, Spezialflachgläser, Solargläser, Funktionsgläser)"
+                    }
+                  },
+                  {
+                    "value": "33_60",
+                    "label": {
+                      "de": "Be- und Verarbeitung von Flachglas (Isolierglas, Sicherheitsglas, Verbundglas, Bau- und Möbelglas, Fahrzeugglas)"
+                    }
+                  },
+                  {
+                    "value": "33_61",
+                    "label": {
+                      "de": "Be- und Verarbeitung von Spezialglas, technischem Glas, Displayglas"
+                    }
+                  },
+                  {
+                    "value": "h11",
+                    "label": {
+                      "de": "Zulieferer (u.a. chem. Industrie)"
+                    }
+                  },
+                  {
+                    "value": "33_14",
+                    "label": {
+                      "de": "Glashandel"
+                    }
+                  },
+                  {
+                    "value": "33_15",
+                    "label": {
+                      "de": "Bauelemente / Baustoff-Fachhandel"
+                    }
+                  },
+                  {
+                    "value": "33_63",
+                    "label": {
+                      "de": "Fensterherstellung / Fassadensysteme"
+                    }
+                  },
+                  {
+                    "value": "33_30",
+                    "label": {
+                      "de": "Metallbau / Profilherstellung"
+                    }
+                  },
+                  {
+                    "value": "h03",
+                    "label": {
+                      "de": "Handwerk"
+                    }
+                  },
+                  {
+                    "value": "33_62",
+                    "label": {
+                      "de": "Handwerkliche Glasverarbeitung und –veredelung"
+                    }
+                  },
+                  {
+                    "value": "33_13",
+                    "label": {
+                      "de": "Glasapparatebau"
+                    }
+                  },
+                  {
+                    "value": "33_31",
+                    "label": {
+                      "de": "Fenster / Fassadenbau"
+                    }
+                  },
+                  {
+                    "value": "33_18",
+                    "label": {
+                      "de": "Metallbau"
+                    }
+                  },
+                  {
+                    "value": "33_56",
+                    "label": {
+                      "de": "Ladenbau / Innenausbau mit Glas"
+                    }
+                  },
+                  {
+                    "value": "33_19",
+                    "label": {
+                      "de": "Holz- und kunststoffverarbeitendes Handwerk"
+                    }
+                  },
+                  {
+                    "value": "33_64",
+                    "label": {
+                      "de": "Fliesen – und Feinstein verarbeitendes Handwerk"
+                    }
+                  },
+                  {
+                    "value": "33_50",
+                    "label": {
+                      "de": "Sonstiges glasverarbeitendes Handwerk"
+                    }
+                  },
+                  {
+                    "value": "h05",
+                    "label": {
+                      "de": "Architektur + Bauwesen"
+                    }
+                  },
+                  {
+                    "value": "33_22",
+                    "label": {
+                      "de": "Architekturbüro"
+                    }
+                  },
+                  {
+                    "value": "33_23",
+                    "label": {
+                      "de": "Ingenieur- und Planungsbüro"
+                    }
+                  },
+                  {
+                    "value": "33_24",
+                    "label": {
+                      "de": "Innenarchitektur"
+                    }
+                  },
+                  {
+                    "value": "33_65",
+                    "label": {
+                      "de": "Fassadenplanung"
+                    }
+                  },
+                  {
+                    "value": "33_26",
+                    "label": {
+                      "de": "Messe- und Ladenbau"
+                    }
+                  },
+                  {
+                    "value": "h08",
+                    "label": {
+                      "de": "Sonstige"
+                    }
+                  },
+                  {
+                    "value": "33_46",
+                    "label": {
+                      "de": "Umwelt und Recycling"
+                    }
+                  },
+                  {
+                    "value": "33_47",
+                    "label": {
+                      "de": "Forschungseinrichtungen / Fach- und Hochschulen"
+                    }
+                  },
+                  {
+                    "value": "33_48",
+                    "label": {
+                      "de": "Presse / Media"
+                    }
+                  },
+                  {
+                    "value": "33_57",
+                    "label": {
+                      "de": "Behörden und Organisationen"
+                    }
+                  },
+                  {
+                    "value": "33_49",
+                    "label": {
+                      "de": "Sonstige Dienstleistungen"
+                    }
+                  }
+                ],
+                "name": "question_33",
+                "validation": {
+                  "required": "always",
+                  "requiredMessage": {
+                    "de": "Bitte beantworten Sie diese Frage!"
+                  }
+                },
+                "type": "radio",
+                "dataField": {
+                  "group": "survey",
+                  "name": "33"
+                }
+              }
+            }
+          ],
+          "label": {
+            "de": "Branche/Wirtschaftsbereich"
+          },
+          "type": "group",
+          "properties": {
+            "name": "group_question_33",
+            "dependencies": {}
+          }
+        },
+        {
+          "elements": [
+            {
+              "label": {
+                "de": ""
+              },
+              "type": "control",
+              "properties": {
+                "options": [
+                  {
+                    "value": "34_02",
+                    "label": {
+                      "de": "Glasherstellung/Produktionstechnik"
+                    }
+                  },
+                  {
+                    "value": "34_31",
+                    "label": {
+                      "de": "Technische Gläser / Funktionsgläser"
+                    }
+                  },
+                  {
+                    "value": "34_03",
+                    "label": {
+                      "de": "Glasrecycling"
+                    }
+                  },
+                  {
+                    "value": "34_04",
+                    "label": {
+                      "de": "Industrielle Glasbe- und verarbeitung"
+                    }
+                  },
+                  {
+                    "value": "34_30",
+                    "label": {
+                      "de": "Handwerkliche Glasbe- und verarbeitung"
+                    }
+                  },
+                  {
+                    "value": "34_05",
+                    "label": {
+                      "de": "Glasdruck"
+                    }
+                  },
+                  {
+                    "value": "34_06",
+                    "label": {
+                      "de": "Glasprodukte und Glasanwendungen"
+                    }
+                  },
+                  {
+                    "value": "34_07",
+                    "label": {
+                      "de": "Fassadensysteme"
+                    }
+                  },
+                  {
+                    "value": "34_08",
+                    "label": {
+                      "de": "Solare Anwendungen (Solarmodule, Solarthermie, Solarglas, etc.)"
+                    }
+                  },
+                  {
+                    "value": "34_32",
+                    "label": {
+                      "de": "Solare Produktionstechnik"
+                    }
+                  },
+                  {
+                    "value": "34_09",
+                    "label": {
+                      "de": "Funktionsbeschläge"
+                    }
+                  },
+                  {
+                    "value": "34_10",
+                    "label": {
+                      "de": "Innenausbau mit Glas"
+                    }
+                  },
+                  {
+                    "value": "34_33",
+                    "label": {
+                      "de": "Autoglas"
+                    }
+                  },
+                  {
+                    "value": "34_11",
+                    "label": {
+                      "de": "Werkzeuge, Ersatzteile und Verschleißteile, Hilfsmittel, Ausrüstung"
+                    }
+                  },
+                  {
+                    "value": "34_12",
+                    "label": {
+                      "de": "Messtechnik, Steuertechnik, Regeltechnik und Software"
+                    }
+                  },
+                  {
+                    "value": "34_13",
+                    "label": {
+                      "de": "Contracting, Consulting, Engineering, Dienstleistungen"
+                    }
+                  },
+                  {
+                    "value": "34_14",
+                    "label": {
+                      "de": "Forschung und Lehre, Fachverlage, Verbände/Organisationen"
+                    }
+                  }
+                ],
+                "name": "question_34",
+                "validation": {
+                  "required": "never",
+                  "requiredMessage": {
+                    "de": "Bitte beantworten Sie diese Frage!"
+                  }
+                },
+                "type": "checkbox",
+                "dataField": {
+                  "group": "survey",
+                  "name": "34"
+                }
+              }
+            }
+          ],
+          "label": {
+            "de": "Mich interessieren folgende Messethemen:"
+          },
+          "type": "group",
+          "properties": {
+            "name": "group_question_34",
+            "dependencies": {}
+          }
+        },
+        {
+          "elements": [
+            {
+              "label": {
+                "de": ""
+              },
+              "type": "control",
+              "properties": {
+                "options": [
+                  {
+                    "value": "35_01",
+                    "label": {
+                      "de": "Sonderschau \"glass technology live\""
+                    }
+                  },
+                  {
+                    "value": "35_03",
+                    "label": {
+                      "de": "Zentrum Handwerk mit Sonderschau \"Handwerk LIVE\""
+                    }
+                  },
+                  {
+                    "value": "35_06",
+                    "label": {
+                      "de": "Sonderschau „glass art“"
+                    }
+                  },
+                  {
+                    "value": "35_08",
+                    "label": {
+                      "de": "Konferenz \"function meets glass\""
+                    }
+                  },
+                  {
+                    "value": "35_09",
+                    "label": {
+                      "de": "Architekturkongress"
+                    }
+                  },
+                  {
+                    "value": "35_10",
+                    "label": {
+                      "de": "Konferenz \"engineered transparency\""
+                    }
+                  }
+                ],
+                "name": "question_35",
+                "validation": {
+                  "required": "never",
+                  "requiredMessage": {
+                    "de": "Bitte beantworten Sie diese Frage!"
+                  }
+                },
+                "type": "checkbox",
+                "dataField": {
+                  "group": "survey",
+                  "name": "35"
+                }
+              }
+            }
+          ],
+          "label": {
+            "de": "Mich interessieren folgende Sonderschauen und Konferenzen"
+          },
+          "type": "group",
+          "properties": {
+            "name": "group_question_35",
+            "dependencies": {}
+          }
+        }
+      ],
+      "type": "group",
+      "properties": {
+        "wizardStep": 3,
+        "display": "always"
+      }
+    },
+    {
+      "elements": [
+        {
+          "label": {
+            "de": "Datenschutzbestimmungen"
+          },
+          "type": "control",
+          "properties": {
+            "options": [
+              {
+                "value": "1",
+                "label": {
+                  "en": "I agree being included in the visitor database. The data protection regulations of Messe Düsseldorf GmbH (Stockumer Kirchstraße 61, Messeplatz, 40474 Düsseldorf, Germany) apply. These regulations are available at <a href=\"/Datenschutz\" target=\"_blank\">www.messe-duesseldorf.de/Datenschutz</a>.The permission granted to process my personal data may at any time be withdrawn on said website, via e-mail to <a href=\"mailto:privacy@messe-duesseldorf.de\">privacy@messe-duesseldorf.de</a>, or by postal mail.",
+                  "de": "Ich stimme zu, dass ich in die Besucherdatenbank der glasstec aufgenommen werde. Es gelten die Datenschutzbestimmungen der Messe Düsseldorf GmbH (Stockumer Kirchstraße 61, Messeplatz, 40474 Düsseldorf). Diese sind einsehbar unter <a href=\"/Datenschutz\" target=\"_blank\">www.messe-duesseldorf.de/Datenschutz</a>. Der Datenverarbeitung kann jederzeit auf dieser Internetseite, per E-Mail an <a href=\"mailto:privacy@messe-duesseldorf.de\">privacy@messe-duesseldorf.de</a> oder auf postalischem Wege widersprochen werden."
+                }
+              }
+            ],
+            "value": "",
+            "styles": {
+              "inputPosition": "top"
+            },
+            "name": "privacy_provisions",
+            "validation": {
+              "required": "always",
+              "maxLength": 255,
+              "requiredMessage": {
+                "en": "Please accept the privacy provisions.",
+                "de": "Bitte Datenschutzbestimmungen zustimmen."
+              }
+            },
+            "wizardStep": 4,
+            "dataField": {
+              "group": "freefields",
+              "name": "privacy_provisions"
+            },
+            "display": "always",
+            "type": "checkbox"
+          }
+        }
+      ],
+      "type": "group",
+      "label": {
+        "en": "Privacy Provision",
+        "de": "Datenschutzbestimmung"
+      },
+      "properties": {
+        "wizardStep": 4
+      }
+    }
+  ],
+  "failure": {
+    "text": {
+      "en": "A problem occurred while sending your registration data. Please try again in a few moments. Should the problem persist, please turn to <a href=\"mailto:service@testmail.dimedis.de\">service@service.de</a>.",
+      "de": "Beim Absenden Ihrer Daten ist ein Problem aufgetreten. Bitte versuchen Sie es in Kürze noch einmal. Sollte das Problem trotzdem weiter bestehen, wenden Sie sich bitte an <a href=\"mailto:service@testmail.dimedis.de\">service@service.de</a>."
+    }
+  },
+  "meta": {
+    "fair_id": "glasstec2018",
+    "apiEndpoint": "https://shoptestmd.dimedis.de/registration-api/registrations",
+    "oid": "12057",
+    "langDefault": "de"
+  }
+}

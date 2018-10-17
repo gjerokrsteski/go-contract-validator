@@ -1,0 +1,180 @@
+{
+  "schema": "http://json-schema.org/draft-06/schema#",
+  "definitions": {
+    "meta": {
+      "title": "Meta",
+      "description": "Additional information not related to the registration data",
+      "type": "object",
+      "properties": {
+        "reg_session_id": {
+          "description": "The ID of the registration session",
+          "type": "string"
+        },
+        "oid": {
+          "description": "The ID of the registration form structure document as used in the dimedis CMS",
+          "type": "string"
+        },
+        "lang": {
+          "description": "The used language represented by a 2 letter ISO code",
+          "type": "string",
+          "pattern": "^[a-z]{2}$"
+        }
+      },
+      "required": [
+        "reg_session_id",
+        "oid",
+        "lang"
+      ]
+    },
+    "registration": {
+      "title": "Registration",
+      "description": "Information regarding the collected registration data",
+      "type": "object",
+      "properties": {
+        "survey": {
+          "description": "The survey data",
+          "type": "object",
+          "properties": {
+            "answers": {
+              "description": "The collected survey answers",
+              "type": "object",
+              "patternProperties": {
+                "^.+$": {
+                  "description": "The ID of the survey category",
+                  "type": "object",
+                  "patternProperties": {
+                    "^.+$": {
+                      "description": "The ID of the selected survey category options",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "account": {
+          "description": "The data specific to the used customer account",
+          "type": "object",
+          "properties": {
+            "email": {
+              "description": "The customer e-mail address. Could also represent the customer user name.",
+              "type": "string"
+            },
+            "name": {
+              "description": "The customer user name",
+              "type": "string"
+            }
+          }
+        },
+        "aitem": {
+          "description": "The collected form data",
+          "type": "object",
+          "properties": {
+            "suid": {
+              "description": "The unique account ID",
+              "type": "string"
+            },
+            "fields": {
+              "description": "The default fields",
+              "type": "object",
+              "patternProperties": {
+                "^.+$": {
+                  "type": "string"
+                }
+              },
+              "properties": {
+                "country": {
+                  "description": "The country represented by a 2 letter ISO code",
+                  "pattern": "^[A-Z]{2}$"
+                },
+                "email": {
+                  "format": "email"
+                },
+                "webpage": {
+                  "format": "uri"
+                }
+              },
+              "propertyNames": {
+                "enum": [
+                  "city",
+                  "city2",
+                  "company",
+                  "company2",
+                  "company3",
+                  "company4",
+                  "country",
+                  "division",
+                  "email",
+                  "fax",
+                  "first_name",
+                  "gender",
+                  "house_no",
+                  "house_no_extension",
+                  "mobile_extension",
+                  "name",
+                  "phone",
+                  "pobox",
+                  "position",
+                  "region",
+                  "street",
+                  "street2",
+                  "street3",
+                  "street4",
+                  "title",
+                  "title2",
+                  "webpage",
+                  "zip_pobox",
+                  "zip_street"
+                ]
+              }
+            },
+            "freefields": {
+              "description": "The additional fields",
+              "type": "object",
+              "patternProperties": {
+                "^[a-zA-Z_]+$": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": [
+            "fields"
+          ]
+        },
+        "exhibition": {
+          "description": "The ID of the event (fair, exhibition)",
+          "type": "string"
+        },
+        "legitimation": {
+          "description": "Currently not used. Must be defined later on.",
+          "type": "object"
+        },
+        "newsletter": {
+          "description": "Currently not used. Must be defined later on.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "aitem",
+        "exhibition"
+      ]
+    }
+  },
+  "$id": "regina.registration",
+  "description": "The schema for the RegiNA customer registration data",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "$ref": "#/definitions/meta"
+    },
+    "registration": {
+      "$ref": "#/definitions/registration"
+    }
+  },
+  "required": [
+    "meta",
+    "registration"
+  ]
+}

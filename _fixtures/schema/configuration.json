@@ -1,0 +1,625 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "definitions": {
+    "meta": {
+      "title": "Meta",
+      "description": "Additional information not related to the form structure",
+      "type": "object",
+      "properties": {
+        "fair_id": {
+          "description": "The ID of the event (fair, exhibition)",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "glasstech_2018"
+          ]
+        },
+        "apiEndpoint": {
+          "description": "The API endpoint used for receiving the registration data",
+          "type": "string",
+          "format": "uri",
+          "examples": [
+            "https://data.collector.service/give/me/your/data?now"
+          ]
+        },
+        "oid": {
+          "description": "The ID of the registration form structure document as used in the dimedis CMS",
+          "type": "string",
+          "examples": [
+            "11666-de"
+          ]
+        },
+        "langDefault": {
+          "description": "The default language represented by a 2 letter ISO code",
+          "type": "string",
+          "pattern": "^[a-z]{2}$",
+          "examples": [
+            "de"
+          ]
+        }
+      },
+      "required": [
+        "apiEndpoint",
+        "oid",
+        "langDefault"
+      ]
+    },
+    "design": {
+      "title": "Design",
+      "description": "Information regarding the visual style",
+      "type": "object",
+      "properties": {
+        "theme": {
+          "description": "The name of the used theme",
+          "type": "string",
+          "default": ""
+        },
+        "layout": {
+          "description": "The name of the used form layout",
+          "type": "string",
+          "default": "standard"
+        },
+        "wizard": {
+          "description": "Definition of labels regarding the 'wizard'-layout ",
+          "type": "object",
+          "properties": {
+            "stepsLabel": {
+              "description": "Definition of labels of wizard-steps",
+              "type": "array",
+              "items": {
+                "label": {
+                  "description": "The label of the control",
+                  "$ref": "#/definitions/localizedContent"
+                }
+              }
+            },
+            "nextButtonLabel": {
+              "description": "The label of the 'next'-button",
+              "$ref": "#/definitions/localizedContent"
+            },
+            "backButtonLabel": {
+              "description": "The label of the 'back'-button",
+              "$ref": "#/definitions/localizedContent"
+            }
+          }
+        }
+      }
+    },
+    "confirmation": {
+      "title": "Confirmation",
+      "description": "The content shown in case of successful form submit",
+      "type": "object",
+      "properties": {
+        "button": {
+          "description": "The localized label of the submit button",
+          "$ref": "#/definitions/localizedContent"
+        },
+        "component": {
+          "type": "object",
+          "properties": {
+            "headline": {
+              "description": "The localized header of the confirmation message",
+              "$ref": "#/definitions/localizedContent"
+            },
+            "text": {
+              "description": "The localized content of the confirmation message",
+              "$ref": "#/definitions/localizedContent"
+            }
+          },
+          "required": [
+            "headline",
+            "text"
+          ]
+        }
+      },
+      "required": [
+        "button"
+      ]
+    },
+    "failure": {
+      "title": "Failure",
+      "description": "The content shown in case of failed form submit",
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "The localized content of the failure message",
+          "$ref": "#/definitions/localizedContent"
+        }
+      },
+      "required": [
+        "text"
+      ]
+    },
+    "elements": {
+      "definitions": {
+        "validationMessage": {
+          "description": "The localized validation message of the control",
+          "$ref": "#/definitions/localizedContent"
+        },
+        "elasticSearchFields": {
+          "type": "string",
+          "enum": [
+            "postalCode",
+            "city",
+            "country",
+            "countryCode",
+            "state",
+            "stateCode",
+            "province",
+            "provinceCode",
+            "community",
+            "communityCode"
+          ]
+        },
+        "nestedElements": {
+          "title": "Elements",
+          "description": "The elements to show in the form. Can be either a group, a row or an actual element. The elements can be nested whithout level limits, so use them wisely.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "id": "element.type",
+                "description": "The type of the element",
+                "type": "string",
+                "enum": [
+                  "group",
+                  "row",
+                  "control"
+                ]
+              },
+              "label": {
+                "description": "The label of the control",
+                "$ref": "#/definitions/localizedContent",
+                "dependencies": {
+                  "element.type": [
+                    "group",
+                    "control"
+                  ]
+                }
+              },
+              "elements": {
+                "description": "The nested elements",
+                "$ref": "#/definitions/elements/definitions/nestedElements",
+                "dependencies": {
+                  "element.type": [
+                    "group",
+                    "row"
+                  ]
+                }
+              },
+              "properties": {
+                "description": "The additional properties of the element",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "id": "control.type",
+                    "description": "The type of the control",
+                    "type": "string",
+                    "enum": [
+                      "text",
+                      "number",
+                      "email",
+                      "email-confirmation",
+                      "select",
+                      "checkbox",
+                      "radio"
+                    ],
+                    "dependencies": {
+                      "element.type": [
+                        "control"
+                      ]
+                    }
+                  },
+                  "name": {
+                    "description": "The name of the control",
+                    "type": "string",
+                    "dependencies": {
+                      "element.type": [
+                        "control"
+                      ]
+                    }
+                  },
+                  "e2eId": {
+                    "description": "The id of the control used for end-to-end testing",
+                    "type": "string",
+                    "dependencies": {
+                      "element.type": [
+                        "control"
+                      ]
+                    }
+                  },
+                  "readonly": {
+                    "description": "The read-only setting of the control",
+                    "type": "boolean",
+                    "default": false,
+                    "dependencies": {
+                      "element.type": [
+                        "control"
+                      ]
+                    }
+                  },
+                  "value": {
+                    "description": "The initial value of the control",
+                    "type": "string",
+                    "default": "",
+                    "dependencies": {
+                      "element.type": [
+                        "control"
+                      ]
+                    }
+                  },
+                  "options": {
+                    "description": "The selectable items of the control",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "description": "The value of a selectable control item",
+                          "type": [
+                            "string",
+                            "number",
+                            "boolean"
+                          ]
+                        },
+                        "label": {
+                          "description": "The label of a selectable control item",
+                          "$ref": "#/definitions/localizedContent"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "label"
+                      ]
+                    },
+                    "dependencies": {
+                      "control.type": [
+                        "select",
+                        "radio",
+                        "checkbox"
+                      ]
+                    }
+                  },
+                  "display": {
+                    "description": "The display setting of the element",
+                    "type": "string",
+                    "enum": [
+                      "never",
+                      "oncreate",
+                      "onedit",
+                      "always"
+                    ]
+                  },
+                  "validation": {
+                    "description": "The validation settings of the control",
+                    "type": "object",
+                    "properties": {
+                      "required": {
+                        "id": "control.validation.required",
+                        "description": "The required validation setting of the control",
+                        "type": "string",
+                        "enum": [
+                          "never",
+                          "oncreate",
+                          "always"
+                        ]
+                      },
+                      "requiredMessage": {
+                        "description": "The message shown with the required validation",
+                        "$ref": "#/definitions/elements/definitions/validationMessage",
+                        "dependencies": {
+                          "control.validation.required": [
+                            "oncreate",
+                            "always"
+                          ]
+                        }
+                      },
+                      "minLength": {
+                        "id": "control.validation.minLength",
+                        "description": "The minLength validation setting of the control",
+                        "type": [
+                          "number",
+                          "string"
+                        ],
+                        "pattern": "^[0-9]+$",
+                        "exclusiveMinimum": 0
+                      },
+                      "minLengthMessage": {
+                        "description": "The message shown with the minLength validation",
+                        "$ref": "#/definitions/elements/definitions/validationMessage"
+                      },
+                      "maxLength": {
+                        "id": "control.validation.maxLength",
+                        "description": "The maxLength validation setting of the control",
+                        "type": [
+                          "number",
+                          "string"
+                        ],
+                        "pattern": "^[0-9]+$",
+                        "exclusiveMinimum": 0
+                      },
+                      "maxLengthMessage": {
+                        "description": "The message shown with the maxLength validation",
+                        "$ref": "#/definitions/elements/definitions/validationMessage"
+                      },
+                      "whiteList": {
+                        "id": "control.validation.whiteList",
+                        "description": "The whiteList validation setting of the control",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "whiteListMessage": {
+                        "description": "The message shown with the whiteList validation",
+                        "$ref": "#/definitions/elements/definitions/validationMessage"
+                      },
+                      "blackList": {
+                        "id": "control.validation.blackList",
+                        "description": "The blackList validation setting of the control",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "blackListMessage": {
+                        "description": "The message shown with the blackList validation",
+                        "$ref": "#/definitions/elements/definitions/validationMessage"
+                      },
+                      "pattern": {
+                        "description": "The pattern validation setting of the control",
+                        "type": "boolean"
+                      },
+                      "patternMessage": {
+                        "description": "The message shown with the pattern validation",
+                        "$ref": "#/definitions/elements/definitions/validationMessage"
+                      },
+                      "equalityMessage": {
+                        "description": "The message shown with the equality validation integrated in the e-mail confirmation component",
+                        "$ref": "#/definitions/elements/definitions/validationMessage"
+                      }
+                    },
+                    "dependencies": {
+                      "element.type": [
+                        "control"
+                      ]
+                    }
+                  },
+                  "dataField": {
+                    "description": "The data source definition of the control",
+                    "type": "object",
+                    "properties": {
+                      "group": {
+                        "description": "The name of the data source group",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name of the data source property",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "group"
+                    ],
+                    "dependencies": {
+                      "element.type": [
+                        "control"
+                      ]
+                    }
+                  },
+                  "autosuggest": {
+                    "description": "The auto-suggestion settings of the control",
+                    "type": "object",
+                    "properties": {
+                      "autocomplete": {
+                        "description": "The auto-complete settings of the control",
+                        "type": "object",
+                        "patternProperties": {
+                          "^.+$": {
+                            "description": "The name of the form field to receive the auto-complete value",
+                            "$ref": "#/definitions/elements/definitions/elasticSearchFields"
+                          }
+                        }
+                      },
+                      "dataToFetch": {
+                        "description": "The list of properties that define the auto-suggest response",
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/elements/definitions/elasticSearchFields"
+                        }
+                      },
+                      "serviceUrl": {
+                        "description": "The URL of the service providing the auto-suggestion data",
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "queryString": {
+                        "description": "The query parameter used to retrieve the auto-suggestion data",
+                        "type": "string"
+                      },
+                      "queryFilters": {
+                        "description": "Additional query filters extending the query parameter",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "description": "The query parameter to filter for",
+                              "$ref": "#/definitions/elements/definitions/elasticSearchFields"
+                            },
+                            "fieldName": {
+                              "description": "The name of the form field providing the value for the filter",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "fieldName"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "serviceUrl",
+                      "queryString",
+                      "dataToFetch"
+                    ],
+                    "dependencies": {
+                      "element.type": [
+                        "control"
+                      ]
+                    }
+                  },
+                  "dependencies": {
+                    "description": "The ",
+                    "type": "object",
+                    "patternProperties": {
+                      "^.*$": {
+                        "description": "The form field providing the value for the dependency",
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "description": "Triggers the dependency if the value is included",
+                            "type": [
+                              "string",
+                              "array"
+                            ],
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "blacklist": {
+                            "description": "Triggers the dependency if the value is not included",
+                            "type": [
+                              "string",
+                              "array"
+                            ],
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "fields": {
+                    "description": "The list of fields grouped for e-mail address check",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "description": "The label of the e-mail confirmation control",
+                          "$ref": "#/definitions/localizedContent"
+                        },
+                        "properties": {
+                          "description": "The additional properties of the e-mail confirmation control",
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "description": "The name of the field",
+                              "type": "string"
+                            },
+                            "value": {
+                              "description": "The value of the field",
+                              "type": "string"
+                            },
+                            "type": {
+                              "description": "The type of the field. Currently only type email supported.",
+                              "type": "string",
+                              "const": "email"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "properties"
+                      ]
+                    },
+                    "dependencies": {
+                      "control.type": [
+                        "email-confirmation"
+                      ]
+                    }
+                  },
+                  "description": {
+                    "description": "The additional content shown before or after the control",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "position": {
+                          "description": "The position of the control description",
+                          "type": "string",
+                          "enum": [
+                            "before",
+                            "after"
+                          ],
+                          "default": "before"
+                        },
+                        "content": {
+                          "description": "The localized description content",
+                          "$ref": "#/definitions/localizedContent"
+                        }
+                      }
+                    }
+                  },
+                  "wizardStep": {
+                    "description": "The number of wizard-step which this element with it's subelements belongs to",
+                    "type": "number"
+                  }
+                },
+                "dependencies": {
+                  "element.type": [
+                    "group",
+                    "control"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "type"
+            ]
+          }
+        }
+      },
+      "$ref": "#/definitions/elements/definitions/nestedElements"
+    },
+    "localizedContent": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]{2}$": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$id": "regina.configuration",
+  "description": "The schema for the RegiNA customer registration form",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "$ref": "#/definitions/meta"
+    },
+    "design": {
+      "$ref": "#/definitions/design"
+    },
+    "confirmation": {
+      "$ref": "#/definitions/confirmation"
+    },
+    "failure": {
+      "$ref": "#/definitions/failure"
+    },
+    "elements": {
+      "$ref": "#/definitions/elements"
+    }
+  },
+  "required": [
+    "meta",
+    "confirmation",
+    "failure",
+    "elements"
+  ]
+}

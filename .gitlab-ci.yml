@@ -1,0 +1,60 @@
+variables:
+  DOCKER_DRIVER: overlay2
+
+image: docker-nexus.dimedis.de/dimedis/golang:1.9.1
+
+stages:
+  - lint
+  - build
+  - test
+  - pack
+
+cache:
+  paths:
+  - ./dist
+
+lint go:
+  stage: lint
+  script:
+    - ./lint-go.sh
+
+build binary:
+  stage: build
+  only:
+    - tags
+  script:
+    - ./install.sh
+    - ./build.sh
+
+test binary:
+  stage: test
+  only:
+    - tags
+  script:
+    - ./e2e-test.sh
+
+test registration schema:
+  stage: test
+  only:
+    - tags
+  script:
+    - ./e2e-test-registrations.sh
+
+test configuration schema:
+  stage: test
+  only:
+    - tags
+  script:
+    - ./e2e-test-configurations.sh
+
+artifacts:
+  stage: pack
+  only:
+    - tags
+  script:
+   - echo "Start packing artifact..."
+  artifacts:
+    name: "${CI_PROJECT_NAME}-${CI_COMMIT_TAG}"
+    paths:
+     - ./dist
+    expire_in: 1 week

@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "reg_session_id": "32972777-6c738f3549658e2c1cbc42bba259d4f0",
+    "confirmation_url": "/cgi-bin/gertvisit2/lib/pub/tt.cgi/Aktualisierung_abgeschlossen.html?oid=9222&lang=1&ticket=75735482156321",
+    "lang": "de",
+    "google_tag_manager": {
+      "page": "/BMS_Portal/Ticketshop_der_boot_Düsseldorf_2017/Registrierformular_(Version_3,_RegiNA)/InterestedCustomer",
+      "event": "customView"
+    },
+    "debug": {
+      "confirmation_page_id": "account_updated",
+      "confirmation_legi_page_id": "account_awaiting_legi"
+    },
+    "oid": "11666"
+  },
+  "registration": {
+    "survey": {
+      "answers": {
+        "10": {
+          "10_14": "1",
+          "10_13": "1"
+        },
+        "19": {
+          "19_07": "1",
+          "19_12": "1"
+        },
+        "20": {
+          "20_02": "1"
+        }
+      }
+    },
+    "account": {
+      "email": "jana@dimedis.de"
+    },
+    "aitem": {
+      "suid": "dim.a.162w.2015102209-20-00.15203.18632.9",
+      "freefields": {
+        "business_registration_number": "gerts business number",
+        "glasstech_architektennr": "4711"
+      },
+      "fields": {
+        "dender": "2",
+        "title": "Dr. rer. nat.",
+        "first_name": "Jana",
+        "name": "20151022_boot",
+        "company": "Short and Jordan Traders",
+        "country": "DE",
+        "zip_street": "31234",
+        "city": "Cherokee Robbins",
+        "street": "Brittany Randall"
+      }
+    },
+    "exhibition": "boot2017",
+    "legitimation": {},
+    "newsletter": {}
+  }
+}
