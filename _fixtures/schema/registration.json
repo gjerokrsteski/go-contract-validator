@@ -11,7 +11,7 @@
           "type": "string"
         },
         "oid": {
-          "description": "The ID of the registration form structure document as used in the dimedis CMS",
+          "description": "The ID of the registration form structure document as used in the CMS",
           "type": "string"
         },
         "lang": {
@@ -163,7 +163,7 @@
     }
   },
   "$id": "regina.registration",
-  "description": "The schema for the RegiNA customer registration data",
+  "description": "The schema for customer registration data",
   "type": "object",
   "properties": {
     "meta": {

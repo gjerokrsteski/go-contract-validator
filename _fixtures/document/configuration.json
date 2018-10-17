@@ -270,7 +270,7 @@
                 "de": "Bitte geben Sie eine E-Mail-Adresse einer anderen Domain an!"
               },
               "blackList": [
-                "*@dimedis.de",
+                "*@test.de",
                 "*@blafoo.de"
               ],
               "requiredMessage": {
@@ -2682,13 +2682,13 @@
   ],
   "failure": {
     "text": {
-      "en": "A problem occurred while sending your registration data. Please try again in a few moments. Should the problem persist, please turn to <a href=\"mailto:service@testmail.dimedis.de\">service@service.de</a>.",
-      "de": "Beim Absenden Ihrer Daten ist ein Problem aufgetreten. Bitte versuchen Sie es in Kürze noch einmal. Sollte das Problem trotzdem weiter bestehen, wenden Sie sich bitte an <a href=\"mailto:service@testmail.dimedis.de\">service@service.de</a>."
+      "en": "A problem occurred while sending your registration data. Please try again in a few moments. Should the problem persist, please turn to <a href=\"mailto:service@testmail.test.de\">service@service.de</a>.",
+      "de": "Beim Absenden Ihrer Daten ist ein Problem aufgetreten. Bitte versuchen Sie es in Kürze noch einmal. Sollte das Problem trotzdem weiter bestehen, wenden Sie sich bitte an <a href=\"mailto:service@testmail.test.de\">service@service.de</a>."
     }
   },
   "meta": {
-    "fair_id": "glasstec2018",
-    "apiEndpoint": "https://shoptestmd.dimedis.de/registration-api/registrations",
+    "fair_id": "test2018",
+    "apiEndpoint": "https://shop.test.de/registration-api/registrations",
     "oid": "12057",
     "langDefault": "de"
   }
