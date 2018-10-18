@@ -1,4 +1,4 @@
-# contract-validator
+# contract-validator [![Build Status](https://travis-ci.org/gjerokrsteski/go-contract-validator.svg?branch=master)](https://travis-ci.org/gjerokrsteski/go-contract-validator)
 A cli app that implements HTTP service for validating JSON entities by given JSON Schema.
 
 The binary is compiled for all Linux distributions which rely on amd64 process-architecture. 
