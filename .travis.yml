@@ -5,7 +5,4 @@ go:
   - 1.11.1
 script:
   - ./local-pipeline.sh
-  
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  
+ 
