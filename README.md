@@ -5,6 +5,11 @@ The binary is compiled for all Linux distributions which rely on amd64 process-a
 It listens on the TCP network address and then calls Serve with handler to handle requests 
 on incoming connections.
 
+## Download & Run
+
+[Download latest release](https://github.com/gjerokrsteski/go-contract-validator/releases)
+
+
 ## Explorer the service
 
 ```
