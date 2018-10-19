@@ -1,24 +1,25 @@
+// Package main is a cli app that implements HTTP service for validating JSON entities by given JSON Schema.
 package main
 
 import (
+	"encoding/json"
+	"flag"
 	"fmt"
 	"github.com/santhosh-tekuri/jsonschema"
-	"net/http"
-	"encoding/json"
-	"os"
 	"io"
-	"flag"
-	"log"
 	"io/ioutil"
+	"log"
+	"net/http"
+	"os"
 	"strings"
 )
 
-var Version string = "No Version Provided"
+var Version = "No Version Provided"
 var jsonSchema string
-var serviceName string = "HTTP service for validating JSON entities by given JSON Schema"
+var serviceName = "HTTP service for validating JSON entities by given JSON Schema"
 var servicePort string
 
-//main handles the cli flags and starts an HTTP server by given port.
+// main handles the cli flags and starts an HTTP server by given port.
 func main() {
 	flag.StringVar(&servicePort, "port", "6565", "port number to the host")
 	flag.StringVar(&jsonSchema, "jsonSchema", "./", "absolute path to JSON schema file")
@@ -43,7 +44,7 @@ func main() {
 	}
 }
 
-//handlePing returns a information about running service in the response body as JSON sting.
+// handlePing returns a information about running service in the response body as JSON sting.
 func handlePing(responseWriter http.ResponseWriter, request *http.Request) {
 	pingInfo := map[string]string{"service": serviceName, "port": servicePort, "jsonSchemaFile": jsonSchema, "version": Version}
 	pingInfoMap, _ := json.Marshal(pingInfo)
@@ -51,14 +52,14 @@ func handlePing(responseWriter http.ResponseWriter, request *http.Request) {
 	io.WriteString(responseWriter, string(pingInfoMap))
 }
 
-//handleHome returns a BadRequest HTTP status and information as string about how to use the main service.
+// handleHome returns a BadRequest HTTP status and information as string about how to use the main service.
 func handleHome(responseWriter http.ResponseWriter, request *http.Request) {
 	responseWriter.WriteHeader(http.StatusBadRequest)
 	io.WriteString(responseWriter, "Bad Request! Send JSON data at body using route '/validate'\n")
 }
 
-//handleValidation responds a StatusUnprocessableEntity if the JSON data is not valid and
-//responds StatusOK if JSON data is valid.
+// handleValidation responds a StatusUnprocessableEntity if the JSON data is not valid and
+// responds StatusOK if JSON data is valid.
 func handleValidation(responseWriter http.ResponseWriter, request *http.Request) {
 	request.ParseForm()
 
